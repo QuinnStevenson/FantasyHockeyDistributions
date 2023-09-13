@@ -20,9 +20,8 @@ const buildGraph = (currentTeam) => {
 				data : [currentTeam.picks],
 				xPos : [],
 				title : "sinus"
-			}
+			},
 		],
-		title : "Pick Position"
 	};
 
 	let gaussVariance = Math.pow(currentTeam.std, 2);
@@ -53,7 +52,8 @@ const buildGraph = (currentTeam) => {
 		animationLeftToRight : true,
 		animationEasing: "linear",
 		yAxisMinimumInterval : 0.02,
-		graphTitleFontSize: 18		
+		graphTitleFontSize: 18,
+		xAxisLabel: "Pick Position"		
 	};
 
 	newChartObject.currentData = newData;
