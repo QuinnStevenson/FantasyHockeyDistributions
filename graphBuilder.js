@@ -21,7 +21,8 @@ const buildGraph = (currentTeam) => {
 				xPos : [],
 				title : "sinus"
 			}
-		]
+		],
+		title : "Pick Position"
 	};
 
 	let gaussVariance = Math.pow(currentTeam.std, 2);
