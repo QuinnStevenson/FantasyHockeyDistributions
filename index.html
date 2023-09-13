@@ -1,0 +1,46 @@
+  <!doctype html>
+
+<SCRIPT type="text/javascript" src='./graphBuilder.js'></SCRIPT>
+<!--[if lte IE 8]><SCRIPT src='source/excanvas.js'></script><![endif]--><SCRIPT src='./ChartNew.js-master/ChartNew.js'></SCRIPT>
+<SCRIPT src='./ChartNew.js-master/Add-ins/format.js'></SCRIPT>
+
+
+
+<SCRIPT>
+    defCanvasWidth=1200;
+    defCanvasHeight=600;
+</SCRIPT>
+
+<html>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <head>
+        <title>Demo ChartNew.js</title>
+    </head>
+
+    <body>
+        <center>
+        <FONT SIZE=6><B>Demo of ChartNew.js !</B></FONT>    <BR>
+
+        <script>
+
+        window.onload = function() {
+            let teams = returnTeam();
+            let graphs = [];
+
+            for (let i = 0; i < teams.length; i++) {
+                let newCanvas = `canvasLine${i}`;
+                console.log(newCanvas)
+                document.write("<canvas id=\""+newCanvas+"\" height=\""+defCanvasHeight+"\" width=\""+defCanvasWidth+"\"></canvas>");
+                let newGraph = buildGraph(teams[i]);
+                graphs.push(newGraph);
+            }
+
+
+            for(let i = 0; i < graphs.length; i++) {
+                var myLine = new Chart(document.getElementById(`canvasLine${i}`).getContext("2d")).Line(graphs[i].currentData,graphs[i].currentOptions);              
+            }
+        }
+        </script>
+    </body>
+</html>
